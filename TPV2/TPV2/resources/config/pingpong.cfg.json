@@ -1,0 +1,23 @@
+{
+
+  "ball" : 
+    { "type" : "image", 
+      "img"  : "tennis_ball", 
+      "color": "0x0000ffff"
+    },
+  
+  "leftpaddle" : 
+    { 
+       "type" : "rect",
+       "ctrl" : "auto", 
+       "keys" : [ 26,22,4 ]
+    },
+    
+  "rightpaddle" : 
+    { 
+       "type" : "erect",
+       "ctrl" : "auto", 
+       "keys" : [ 3,4,5 ]
+    }
+  
+}

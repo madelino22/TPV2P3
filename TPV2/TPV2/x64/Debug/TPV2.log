@@ -1,0 +1,78 @@
+﻿BallSystem.obj : error LNK2019: símbolo externo Mix_PlayChannelTimed sin resolver al que se hace referencia en la función "public: int __cdecl SoundEffect::play(int,int)const " (?play@SoundEffect@@QEBAHHH@Z)
+CollisionSystem.obj : error LNK2001: símbolo externo Mix_PlayChannelTimed sin resolver
+Game.obj : error LNK2019: símbolo externo SDL_GetKeyboardState sin resolver al que se hace referencia en la función "private: __cdecl InputHandler::InputHandler(void)" (??0InputHandler@@AEAA@XZ)
+GameManagerSystem.obj : error LNK2001: símbolo externo SDL_GetKeyboardState sin resolver
+PaddlesSystem.obj : error LNK2001: símbolo externo SDL_GetKeyboardState sin resolver
+sdlutils_demo.obj : error LNK2001: símbolo externo SDL_GetKeyboardState sin resolver
+Game.obj : error LNK2019: símbolo externo SDL_PollEvent sin resolver al que se hace referencia en la función "public: void __cdecl Game::start(void)" (?start@Game@@QEAAXXZ)
+sdlutils_demo.obj : error LNK2001: símbolo externo SDL_PollEvent sin resolver
+Game.obj : error LNK2019: símbolo externo SDL_SetRenderDrawColor sin resolver al que se hace referencia en la función "public: void __cdecl SDLUtils::clearRenderer(struct SDL_Color)" (?clearRenderer@SDLUtils@@QEAAXUSDL_Color@@@Z)
+RenderSystem.obj : error LNK2001: símbolo externo SDL_SetRenderDrawColor sin resolver
+sdlutils_demo.obj : error LNK2001: símbolo externo SDL_SetRenderDrawColor sin resolver
+Game.obj : error LNK2019: símbolo externo SDL_RenderClear sin resolver al que se hace referencia en la función "public: void __cdecl SDLUtils::clearRenderer(struct SDL_Color)" (?clearRenderer@SDLUtils@@QEAAXUSDL_Color@@@Z)
+sdlutils_demo.obj : error LNK2001: símbolo externo SDL_RenderClear sin resolver
+Game.obj : error LNK2019: símbolo externo SDL_RenderPresent sin resolver al que se hace referencia en la función "public: void __cdecl SDLUtils::presentRenderer(void)" (?presentRenderer@SDLUtils@@QEAAXXZ)
+sdlutils_demo.obj : error LNK2001: símbolo externo SDL_RenderPresent sin resolver
+Game.obj : error LNK2019: símbolo externo SDL_GetTicks sin resolver al que se hace referencia en la función "public: unsigned int __cdecl SDLUtils::currRealTime(void)const " (?currRealTime@SDLUtils@@QEBAIXZ)
+NetworkSystem.obj : error LNK2001: símbolo externo SDL_GetTicks sin resolver
+sdlutils_demo.obj : error LNK2001: símbolo externo SDL_GetTicks sin resolver
+SDLUtils.obj : error LNK2001: símbolo externo SDL_GetTicks sin resolver
+Game.obj : error LNK2019: símbolo externo SDL_Delay sin resolver al que se hace referencia en la función "public: void __cdecl Game::start(void)" (?start@Game@@QEAAXXZ)
+sdlutils_demo.obj : error LNK2001: símbolo externo SDL_Delay sin resolver
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_Init sin resolver al que se hace referencia en la función "public: virtual void __cdecl NetworkSystem::init(void)" (?init@NetworkSystem@@UEAAXXZ)
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_Quit sin resolver al que se hace referencia en la función "public: virtual __cdecl NetworkSystem::~NetworkSystem(void)" (??1NetworkSystem@@UEAA@XZ)
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_ResolveHost sin resolver al que se hace referencia en la función "public: virtual void __cdecl NetworkSystem::init(void)" (?init@NetworkSystem@@UEAAXXZ)
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_AllocPacket sin resolver al que se hace referencia en la función "public: virtual void __cdecl NetworkSystem::init(void)" (?init@NetworkSystem@@UEAAXXZ)
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_FreePacket sin resolver al que se hace referencia en la función "public: virtual __cdecl NetworkSystem::~NetworkSystem(void)" (??1NetworkSystem@@UEAA@XZ)
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_UDP_Open sin resolver al que se hace referencia en la función "public: virtual void __cdecl NetworkSystem::init(void)" (?init@NetworkSystem@@UEAAXXZ)
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_UDP_Send sin resolver al que se hace referencia en la función "public: virtual __cdecl NetworkSystem::~NetworkSystem(void)" (??1NetworkSystem@@UEAA@XZ)
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_UDP_Recv sin resolver al que se hace referencia en la función "public: virtual void __cdecl NetworkSystem::init(void)" (?init@NetworkSystem@@UEAAXXZ)
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_UDP_Close sin resolver al que se hace referencia en la función "public: virtual __cdecl NetworkSystem::~NetworkSystem(void)" (??1NetworkSystem@@UEAA@XZ)
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_AllocSocketSet sin resolver al que se hace referencia en la función "public: virtual void __cdecl NetworkSystem::init(void)" (?init@NetworkSystem@@UEAAXXZ)
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_AddSocket sin resolver al que se hace referencia en la función SDLNet_UDP_AddSocket
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_CheckSockets sin resolver al que se hace referencia en la función "public: virtual void __cdecl NetworkSystem::init(void)" (?init@NetworkSystem@@UEAAXXZ)
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_FreeSocketSet sin resolver al que se hace referencia en la función "public: virtual void __cdecl NetworkSystem::init(void)" (?init@NetworkSystem@@UEAAXXZ)
+NetworkSystem.obj : error LNK2019: símbolo externo SDLNet_GetError sin resolver al que se hace referencia en la función "public: virtual void __cdecl NetworkSystem::init(void)" (?init@NetworkSystem@@UEAAXXZ)
+RenderSystem.obj : error LNK2019: símbolo externo SDL_RenderFillRect sin resolver al que se hace referencia en la función "private: void __cdecl RenderSystem::drawRect(struct Transform *,struct SDL_Color)" (?drawRect@RenderSystem@@AEAAXPEAUTransform@@USDL_Color@@@Z)
+RenderSystem.obj : error LNK2019: símbolo externo SDL_RenderCopy sin resolver al que se hace referencia en la función "public: void __cdecl Texture::render(struct SDL_Rect const &,struct SDL_Rect const &)" (?render@Texture@@QEAAXAEBUSDL_Rect@@0@Z)
+sdlutils_demo.obj : error LNK2001: símbolo externo SDL_RenderCopy sin resolver
+RenderSystem.obj : error LNK2019: símbolo externo SDL_DestroyTexture sin resolver al que se hace referencia en la función "public: virtual __cdecl Texture::~Texture(void)" (??1Texture@@UEAA@XZ)
+sdlutils_demo.obj : error LNK2001: símbolo externo SDL_DestroyTexture sin resolver
+SDLUtils.obj : error LNK2001: símbolo externo SDL_DestroyTexture sin resolver
+Texture.obj : error LNK2001: símbolo externo SDL_DestroyTexture sin resolver
+sdlutils_demo.obj : error LNK2019: símbolo externo Mix_PlayMusic sin resolver al que se hace referencia en la función "public: void __cdecl Music::play(int)const " (?play@Music@@QEBAXH@Z)
+sdlutils_demo.obj : error LNK2019: símbolo externo Mix_HaltMusic sin resolver al que se hace referencia en la función "public: static void __cdecl Music::haltMusic(void)" (?haltMusic@Music@@SAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo SDL_RWFromFile sin resolver al que se hace referencia en la función "public: __cdecl SoundEffect::SoundEffect(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (??0SoundEffect@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+SDLUtils.obj : error LNK2019: símbolo externo SDL_CreateWindow sin resolver al que se hace referencia en la función "private: void __cdecl SDLUtils::initWindow(void)" (?initWindow@SDLUtils@@AEAAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo SDL_DestroyWindow sin resolver al que se hace referencia en la función "private: void __cdecl SDLUtils::closeWindow(void)" (?closeWindow@SDLUtils@@AEAAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo SDL_ShowCursor sin resolver al que se hace referencia en la función "public: void __cdecl SDLUtils::hideCursor(void)" (?hideCursor@SDLUtils@@QEAAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo SDL_CreateRenderer sin resolver al que se hace referencia en la función "private: void __cdecl SDLUtils::initWindow(void)" (?initWindow@SDLUtils@@AEAAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo SDL_DestroyRenderer sin resolver al que se hace referencia en la función "private: void __cdecl SDLUtils::closeWindow(void)" (?closeWindow@SDLUtils@@AEAAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo SDL_Init sin resolver al que se hace referencia en la función "private: void __cdecl SDLUtils::initWindow(void)" (?initWindow@SDLUtils@@AEAAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo SDL_Quit sin resolver al que se hace referencia en la función "private: void __cdecl SDLUtils::closeWindow(void)" (?closeWindow@SDLUtils@@AEAAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo TTF_Init sin resolver al que se hace referencia en la función "private: void __cdecl SDLUtils::initSDLExtensions(void)" (?initSDLExtensions@SDLUtils@@AEAAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo TTF_OpenFont sin resolver al que se hace referencia en la función "public: __cdecl Font::Font(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int)" (??0Font@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z)
+SDLUtils.obj : error LNK2019: símbolo externo TTF_CloseFont sin resolver al que se hace referencia en la función "public: virtual __cdecl Font::~Font(void)" (??1Font@@UEAA@XZ)
+SDLUtils.obj : error LNK2019: símbolo externo TTF_Quit sin resolver al que se hace referencia en la función "private: void __cdecl SDLUtils::closeSDLExtensions(void)" (?closeSDLExtensions@SDLUtils@@AEAAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo Mix_Init sin resolver al que se hace referencia en la función "private: void __cdecl SDLUtils::initSDLExtensions(void)" (?initSDLExtensions@SDLUtils@@AEAAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo Mix_Quit sin resolver al que se hace referencia en la función "private: void __cdecl SDLUtils::closeSDLExtensions(void)" (?closeSDLExtensions@SDLUtils@@AEAAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo Mix_OpenAudio sin resolver al que se hace referencia en la función "private: void __cdecl SDLUtils::initSDLExtensions(void)" (?initSDLExtensions@SDLUtils@@AEAAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo Mix_AllocateChannels sin resolver al que se hace referencia en la función "public: static int __cdecl SoundEffect::setNumberofChannels(int)" (?setNumberofChannels@SoundEffect@@SAHH@Z)
+SDLUtils.obj : error LNK2019: símbolo externo Mix_LoadWAV_RW sin resolver al que se hace referencia en la función "public: __cdecl SoundEffect::SoundEffect(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (??0SoundEffect@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+SDLUtils.obj : error LNK2019: símbolo externo Mix_LoadMUS sin resolver al que se hace referencia en la función "public: __cdecl Music::Music(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (??0Music@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+SDLUtils.obj : error LNK2019: símbolo externo Mix_FreeChunk sin resolver al que se hace referencia en la función "public: virtual __cdecl SoundEffect::~SoundEffect(void)" (??1SoundEffect@@UEAA@XZ)
+SDLUtils.obj : error LNK2019: símbolo externo Mix_FreeMusic sin resolver al que se hace referencia en la función "public: virtual __cdecl Music::~Music(void)" (??1Music@@UEAA@XZ)
+SDLUtils.obj : error LNK2019: símbolo externo IMG_Init sin resolver al que se hace referencia en la función "private: void __cdecl SDLUtils::initSDLExtensions(void)" (?initSDLExtensions@SDLUtils@@AEAAXXZ)
+SDLUtils.obj : error LNK2019: símbolo externo IMG_Quit sin resolver al que se hace referencia en la función "private: void __cdecl SDLUtils::closeSDLExtensions(void)" (?closeSDLExtensions@SDLUtils@@AEAAXXZ)
+Texture.obj : error LNK2019: símbolo externo SDL_FreeSurface sin resolver al que se hace referencia en la función "public: __cdecl Texture::Texture(struct SDL_Renderer *,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (??0Texture@@QEAA@PEAUSDL_Renderer@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Texture.obj : error LNK2019: símbolo externo SDL_CreateTextureFromSurface sin resolver al que se hace referencia en la función "public: __cdecl Texture::Texture(struct SDL_Renderer *,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (??0Texture@@QEAA@PEAUSDL_Renderer@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Texture.obj : error LNK2019: símbolo externo IMG_Load sin resolver al que se hace referencia en la función "public: __cdecl Texture::Texture(struct SDL_Renderer *,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (??0Texture@@QEAA@PEAUSDL_Renderer@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Texture.obj : error LNK2019: símbolo externo TTF_RenderUTF8_Solid sin resolver al que se hace referencia en la función "public: struct SDL_Surface * __cdecl Font::renderText(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,struct SDL_Color)const " (?renderText@Font@@QEBAPEAUSDL_Surface@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@USDL_Color@@@Z)
+Texture.obj : error LNK2019: símbolo externo TTF_RenderUTF8_Shaded sin resolver al que se hace referencia en la función "public: struct SDL_Surface * __cdecl Font::renderText(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,struct SDL_Color,struct SDL_Color)const " (?renderText@Font@@QEBAPEAUSDL_Surface@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@USDL_Color@@1@Z)
+D:\uni\DSI\TPV2P3\TPV2\SDL2-2.0.7\lib\x86\SDL2.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
+D:\uni\DSI\TPV2P3\TPV2\SDL2-2.0.7\lib\x86\SDL2main.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
+D:\uni\DSI\TPV2P3\TPV2\SDL2_image-2.0.1\lib\x86\SDL2_image.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
+D:\uni\DSI\TPV2P3\TPV2\SDL2_ttf-2.0.14\lib\x86\SDL2_ttf.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
+D:\uni\DSI\TPV2P3\TPV2\SDL2_mixer-2.0.2\lib\x86\SDL2_mixer.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
+D:\uni\DSI\TPV2P3\TPV2\SDL2_net-2.0.1\lib\x86\SDL2_net.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
+D:\uni\DSI\TPV2P3\TPV2\bin\TPV2Debug.exe : fatal error LNK1120: 54 externos sin resolver
