@@ -9,6 +9,7 @@
 #include "../sdlutils/InputHandler.h"
 #include "../sdlutils/SDLUtils.h"
 
+
 #include "../ecs/Manager.h"
 #include "../utils/Vector2D.h"
 #include "BallSystem.h"
@@ -38,8 +39,7 @@ void Game::init(const char *host, Uint16 port) {
 	std::cout << "Enter you name: ";
 	std::cin >> playerName;
 
-	SDLUtils::init("Ping Pong", 800, 600,
-			"resources/config/pingpong.resources.json");
+	SDLUtils::init("Ping Pong", 800, 600, "resources/config/pingpong.resources.json");
 
 	networkSys_ = mngr_->addSystem<NetworkSystem>(host, port, playerName);
 	ballSys_ = mngr_->addSystem<BallSystem>();
