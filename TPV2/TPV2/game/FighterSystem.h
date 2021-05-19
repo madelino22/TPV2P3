@@ -4,6 +4,7 @@
 #include "../ecs/Entity.h"
 #include <vector>
 #include "../utils/Vector2D.h"
+#include "NetworkSystem.h"
 //#include "BulletsSystem.h"
 
 class FighterSystem :
@@ -14,6 +15,7 @@ public:
     void init() override;
     void update() override;
     void moveFighter(Transform* tr);
+    void setFighterTr(int id, Vector2D pos, int r);
     virtual void receive(const Message&);
 private:
     Transform* trIzq;

@@ -8,6 +8,7 @@
 #include "GameManagerSystem.h"
 #include "netwrok_messages.h"
 #include "../utils/Vector2D.h"
+#include "FighterSystem.h"
 
 
 
@@ -190,10 +191,12 @@ void NetworkSystem::update() {
 		}
 
 			// change paddle position of other player
-		case _PADDLE_POS: {
-			PaddlePositionMsg *m = static_cast<PaddlePositionMsg*>(m_);
-			//Vector2D pos(m->x, m->y);
-			//manager_->getSystem<PaddlesSystem>()->setPaddlePosition(m->id, pos);
+		case _FIGHTER_POS: {
+			FighterTransformMsg *m = static_cast<FighterTransformMsg*>(m_);
+			Vector2D pos(m->x, m->y);
+			
+			manager_->getSystem<FighterSystem>()->setFighterTr(m->id, pos, m->r);
+				/*(m->id, pos);*/
 			break;
 		}
 
@@ -234,21 +237,22 @@ void NetworkSystem::update() {
 
 }
 
-void NetworkSystem::sendPaddlePosition(Vector2D pos) {
+void NetworkSystem::sendFighterPos(Vector2D pos, float r) {
 
 	// if the other player is not connected do nothing
 	if (!isGameReday_)
 		return;
 
 	// we prepare a message that includes all information
-	PaddlePositionMsg *m = static_cast<PaddlePositionMsg*>(m_);
-	m->_type = _PADDLE_POS;
+	FighterTransformMsg *m = static_cast<FighterTransformMsg*>(m_);
+	m->_type = _FIGHTER_POS;
 	m->x = pos.getX();
 	m->y = pos.getY();
+	m->r = r;
 	m->id = id_;
 
 	// set the message length and the address of the other player
-	p_->len = sizeof(PaddlePositionMsg);
+	p_->len = sizeof(FighterTransformMsg);
 	p_->address = otherPlayerAddress_;
 
 	// send the message

@@ -62,8 +62,25 @@ void FighterSystem::update()
 		else {
 			moveFighter(trDr);
 		}
+
+	
+
 	}
 }
+
+void FighterSystem::setFighterTr(int id, Vector2D pos, int r)
+{
+	if (id == 0) {
+		trIzq->setPos(pos);
+		trIzq->setRot(r);
+	}
+	else {
+		trDr->setPos(pos);
+		trDr->setRot(r);
+
+	}
+}
+
 
 void FighterSystem::moveFighter(Transform* tr)
 {
@@ -123,9 +140,12 @@ void FighterSystem::moveFighter(Transform* tr)
 
 		}
 		vel = vel * 0.995f;
-	
+
+		manager_->getSystem<NetworkSystem>()->sendFighterPos(tr->pos_, tr->getRot());
 
 }
+
+
 
 void FighterSystem::receive(const Message& m)
 {
