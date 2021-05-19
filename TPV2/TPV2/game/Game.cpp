@@ -12,18 +12,16 @@
 
 #include "../ecs/Manager.h"
 #include "../utils/Vector2D.h"
-#include "BallSystem.h"
+#include "FighterSystem.h"
 #include "CollisionSystem.h"
 #include "GameManagerSystem.h"
 #include "NetworkSystem.h"
-#include "PaddlesSystem.h"
 #include "RenderSystem.h"
 
 Game::Game() {
 	mngr_.reset(new Manager());
 	networkSys_ = nullptr;
-	ballSys_ = nullptr;
-	paddlesSys_ = nullptr;
+	fightersSys_ = nullptr;
 	collisionSys_ = nullptr;
 	gameMngrSys_ = nullptr;
 	renderSys_ = nullptr;
@@ -39,14 +37,15 @@ void Game::init(const char *host, Uint16 port) {
 	std::cout << "Enter you name: ";
 	std::cin >> playerName;
 
-	SDLUtils::init("Ping Pong", 800, 600, "resources/config/pingpong.resources.json");
+	SDLUtils::init("Fighters", 800, 600, "resources/config/resources.json");
 
 	networkSys_ = mngr_->addSystem<NetworkSystem>(host, port, playerName);
-	ballSys_ = mngr_->addSystem<BallSystem>();
-	paddlesSys_ = mngr_->addSystem<PaddlesSystem>();
+	fightersSys_ = mngr_->addSystem<FighterSystem>();
 	collisionSys_ = mngr_->addSystem<CollisionSystem>();
 	gameMngrSys_ = mngr_->addSystem<GameManagerSystem>();
 	renderSys_ = mngr_->addSystem<RenderSystem>();
+
+	dynamic_cast<RenderSystem*>(renderSys_)->getEntities(&(mngr_->getEnteties()));
 }
 
 void Game::start() {
@@ -69,8 +68,8 @@ void Game::start() {
 
 		mngr_->refresh();
 
-		ballSys_->update();
-		paddlesSys_->update();
+		fightersSys_->update();
+		fightersSys_->update();
 		collisionSys_->update();
 		gameMngrSys_->update();
 		networkSys_->update();

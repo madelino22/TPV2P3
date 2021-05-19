@@ -5,10 +5,10 @@
 #include <SDL_net.h>
 
 #include "../ecs/Manager.h"
-#include "BallSystem.h"
 #include "GameManagerSystem.h"
 #include "netwrok_messages.h"
-#include "PaddlesSystem.h"
+#include "../utils/Vector2D.h"
+
 
 
 
@@ -192,16 +192,16 @@ void NetworkSystem::update() {
 			// change paddle position of other player
 		case _PADDLE_POS: {
 			PaddlePositionMsg *m = static_cast<PaddlePositionMsg*>(m_);
-			Vector2D pos(m->x, m->y);
-			manager_->getSystem<PaddlesSystem>()->setPaddlePosition(m->id, pos);
+			//Vector2D pos(m->x, m->y);
+			//manager_->getSystem<PaddlesSystem>()->setPaddlePosition(m->id, pos);
 			break;
 		}
 
 		case _BALL_INFO_: {
 			BallInfoMsg *m = static_cast<BallInfoMsg*>(m_);
-			Vector2D pos(m->pos_x, m->pos_y);
+		/*	Vector2D pos(m->pos_x, m->pos_y);
 			Vector2D vel(m->vel_x, m->vel_y);
-			manager_->getSystem<BallSystem>()->setBallInfo(pos, vel);
+			manager_->getSystem<BallSystem>()->setBallInfo(pos, vel);*/
 
 			break;
 		}

@@ -87,9 +87,6 @@
     <ClCompile Include="ecs\Manager.cpp">
       <Filter>Source Files\ecs</Filter>
     </ClCompile>
-    <ClCompile Include="game\BallSystem.cpp">
-      <Filter>Source Files\game</Filter>
-    </ClCompile>
     <ClCompile Include="game\CollisionSystem.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
@@ -102,10 +99,10 @@
     <ClCompile Include="game\NetworkSystem.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="game\PaddlesSystem.cpp">
+    <ClCompile Include="game\RenderSystem.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="game\RenderSystem.cpp">
+    <ClCompile Include="game\FighterSystem.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -176,9 +173,6 @@
     <ClInclude Include="ecs\mpl.h">
       <Filter>Header Files\ecs</Filter>
     </ClInclude>
-    <ClInclude Include="game\BallSystem.h">
-      <Filter>Header Files\game</Filter>
-    </ClInclude>
     <ClInclude Include="game\CollisionSystem.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
@@ -200,9 +194,6 @@
     <ClInclude Include="game\netwrok_messages.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
-    <ClInclude Include="game\PaddlesSystem.h">
-      <Filter>Header Files\game</Filter>
-    </ClInclude>
     <ClInclude Include="game\RenderSystem.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
@@ -219,6 +210,9 @@
       <Filter>Header Files\ecs</Filter>
     </ClInclude>
     <ClInclude Include="game\messages.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\FighterSystem.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
   </ItemGroup>

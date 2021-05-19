@@ -20,6 +20,50 @@ public:
 			rotation_(rotation) {
 	}
 
+	virtual ~Transform() {
+	}
+
+	Vector2D& getPos() {
+		return pos_;
+	}
+
+	Vector2D& getVel() {
+		return vel_;
+	}
+
+	float getH() const {
+		return height_;
+	}
+
+	void setH(float height) {
+		height_ = height;
+	}
+
+	float getW() const {
+		return width_;
+	}
+
+	void setW(float width) {
+		width_ = width;
+	}
+
+	float getRot() const {
+		return rotation_;
+	}
+
+	void setRot(float rot) {
+		rotation_ = rot;
+	}
+
+	void setVel(Vector2D vel) {
+		vel_ = vel;
+	}
+
+	void setPos(Vector2D pos)
+	{
+		pos_ = pos;
+	}
+
 	Vector2D pos_;
 	Vector2D vel_;
 	float width_;

@@ -21,12 +21,11 @@
   <ItemGroup>
     <ClCompile Include="ecs\Entity.cpp" />
     <ClCompile Include="ecs\Manager.cpp" />
-    <ClCompile Include="game\BallSystem.cpp" />
     <ClCompile Include="game\CollisionSystem.cpp" />
+    <ClCompile Include="game\FighterSystem.cpp" />
     <ClCompile Include="game\Game.cpp" />
     <ClCompile Include="game\GameManagerSystem.cpp" />
     <ClCompile Include="game\NetworkSystem.cpp" />
-    <ClCompile Include="game\PaddlesSystem.cpp" />
     <ClCompile Include="game\RenderSystem.cpp" />
     <ClCompile Include="json\somplejson_demo.cpp" />
     <ClCompile Include="json\JSON.cpp" />
@@ -50,16 +49,15 @@
     <ClInclude Include="ecs\Manager.h" />
     <ClInclude Include="ecs\mpl.h" />
     <ClInclude Include="ecs\System.h" />
-    <ClInclude Include="game\BallSystem.h" />
     <ClInclude Include="game\CollisionSystem.h" />
     <ClInclude Include="game\ecs_defs.h" />
+    <ClInclude Include="game\FighterSystem.h" />
     <ClInclude Include="game\Game.h" />
     <ClInclude Include="game\GameManagerSystem.h" />
     <ClInclude Include="game\messages.h" />
     <ClInclude Include="game\NetworkSystem.h" />
     <ClInclude Include="game\network_types.h" />
     <ClInclude Include="game\netwrok_messages.h" />
-    <ClInclude Include="game\PaddlesSystem.h" />
     <ClInclude Include="game\RenderSystem.h" />
     <ClInclude Include="json\simplejson_demo.h" />
     <ClInclude Include="json\JSON.h" />

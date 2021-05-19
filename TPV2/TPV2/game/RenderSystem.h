@@ -4,24 +4,39 @@
 #include <SDL_pixels.h>
 
 #include "../ecs/System.h"
+#include <vector>
+#include "../ecs/Entity.h"
+#include "../sdlutils/Texture.h"
+
 
 struct Transform;
 
 class RenderSystem: public System {
+protected:
+
+
+	const std::vector<Entity*>* entidades;
+
+
 public:
 	RenderSystem();
 	virtual ~RenderSystem();
 	void init() override;
 	void update() override;
+	void getEntities(const std::vector<Entity*>* ent) { entidades = ent; }
+
 private:
 
-	void drawRect(Transform *tr, SDL_Color color);
 	void drawScore();
 	void drawMsgs();
 	void drawNames();
 
-	Transform *ballTr_;
-	Transform *leftPaddelTr_;
-	Transform *rightPaddelTr_;
+	Texture* naveIzq;
+	Texture*  naveDr;
+	SDL_Rect src_;
+
+	Transform* tr_;
+	Transform *leftFighter;
+	Transform *rightFighter;
 };
 

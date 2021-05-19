@@ -10,44 +10,54 @@
 #include "GameManagerSystem.h"
 #include "NetworkSystem.h"
 
-RenderSystem::RenderSystem() :
-		ballTr_(nullptr), //
-		leftPaddelTr_(nullptr), //
-		rightPaddelTr_(nullptr) {
+RenderSystem::RenderSystem() : 
+		leftFighter(nullptr), //
+		rightFighter(nullptr) {
+	naveIzq = &sdlutils().images().at("nave");
+	naveDr = &sdlutils().images().at("nave2");
 }
 
 RenderSystem::~RenderSystem() {
 }
 
 void RenderSystem::init() {
-	ballTr_ = manager_->getComponent<Transform>(manager_->getHandler<Ball>());
-	assert(ballTr_ != nullptr);
-	leftPaddelTr_ = manager_->getComponent<Transform>(
-			manager_->getHandler<LeftPaddle>());
-	assert(leftPaddelTr_ != nullptr);
-	rightPaddelTr_ = manager_->getComponent<Transform>(
-			manager_->getHandler<RightPaddle>());
-	assert(rightPaddelTr_ != nullptr);
+	
+	leftFighter = manager_->getComponent<Transform>(manager_->getHandler<LeftFighter>());
+	assert(leftFighter != nullptr);
+	rightFighter = manager_->getComponent<Transform>(manager_->getHandler<RightFighter>());
+	assert(rightFighter != nullptr);
+
+	
 }
 
 void RenderSystem::update() {
-	drawRect(ballTr_, build_sdlcolor(0x0000ffff));
-	drawRect(leftPaddelTr_, build_sdlcolor(0x00ff00ff));
-	drawRect(rightPaddelTr_, build_sdlcolor(0xff0000ff));
+	for (Entity* e : *entidades)
+	{
+		tr_ = manager_->getComponent<Transform>(e);
+		SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH()); // Rectangulo destino donde se va a dibujar el objeto en pantalla
+		if (tr_ == leftFighter)
+		{
+			src_ = { 0,0, naveIzq->width(), naveIzq->height() };
+			naveIzq->render(src_, dest, tr_->getRot());
+		}
+		else if (tr_ == rightFighter) {
+			src_ = { 0,0, naveDr->width(), naveDr->height() };
+			naveDr->render(src_, dest, tr_->getRot());
+		}
+		/*else if (manager_->hasGroup<Bullets>(e))
+		{
+			src_ = { 0,0, tex_[bala]->width(), tex_[bala]->height() };
+			tex_[bala]->render(src_, dest, tr_->getRot());
+		}*/
+		
+	}
 
 	drawScore();
 	drawMsgs();
 	drawNames();
 }
 
-void RenderSystem::drawRect(Transform *tr, SDL_Color color) {
-	SDL_SetRenderDrawColor(sdlutils().renderer(), COLOREXP(color));
 
-	SDL_Rect rect = build_sdlrect(tr->pos_, tr->width_, tr->height_);
-
-	SDL_RenderFillRect(sdlutils().renderer(), &rect);
-
-}
 
 void RenderSystem::drawScore() {
 

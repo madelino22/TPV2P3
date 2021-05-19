@@ -1,0 +1,13 @@
+﻿  Game.cpp
+D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14,15): warning C4099: 'Entity': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14): message : vea la declaración de 'Entity'
+D:\uni\DSI\TPV2P3\TPV2\TPV2\game\FighterSystem.h(21,18): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  RenderSystem.cpp
+D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14,15): warning C4099: 'Entity': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14): message : vea la declaración de 'Entity'
+  Generando código
+  0 of 1164 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  TPV2.vcxproj -> D:\uni\DSI\TPV2P3\TPV2\bin\TPV2Release.exe

@@ -18,26 +18,22 @@ struct Paddle;
 #define _GRPS_LIST_ Paddle
 
 // handlers
-struct Ball;
-struct LeftPaddle;
-struct RightPaddle;
+struct LeftFighter;
+struct RightFighter;
 #define _HDLRS_LIST_ \
-	Ball, \
-	LeftPaddle, \
-	RightPaddle
+	LeftFighter, \
+	RightFighter
 
 // systems
-class BallSystem;
-class PaddlesSystem;
+class FighterSystem;
 class RenderSystem;
 class CollisionSystem;
 class GameManagerSystem;
 class NetworkSystem;
 
 #define _SYS_LIST_ \
-		BallSystem, \
-		PaddlesSystem, \
 		RenderSystem, \
+		FighterSystem, \
 		CollisionSystem, \
 		GameManagerSystem,\
 		NetworkSystem

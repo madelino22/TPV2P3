@@ -17,6 +17,18 @@
     {
       "id": "tennis_ball",
       "file": "resources/images/tennis_ball.png"
+    },
+    {
+      "id": "nave",
+      "file": "resources/images/fighter.png"
+    },
+    {
+      "id": "nave2",
+      "file": "resources/images/fighter2.png"
+    },
+    {
+      "id": "fire",
+      "file": "resources/images/fire.png"
     }
   ],
 
@@ -44,12 +56,24 @@
 
   "sounds": [
     {
-      "id": "paddle_hit",
-      "file": "resources/sound/paddle_hit.wav"
+      "id": "gunshot",
+      "file": "resources/sound/gunshot.wav"
     },
     {
-      "id": "wall_hit",
-      "file": "resources/sound/wall_hit.wav"
+      "id": "explosion",
+      "file": "resources/sound/explosion.wav"
+    },
+    {
+      "id": "thrust",
+      "file": "resources/sound/thrust.wav"
+    },
+    {
+      "id": "fire",
+      "file": "resources/sound/fire.wav"
+    },
+    {
+      "id": "bangSmall",
+      "file": "resources/sound/bangSmall.wav"
     }
   ]
 
