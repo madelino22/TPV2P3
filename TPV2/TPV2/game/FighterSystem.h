@@ -5,7 +5,7 @@
 #include <vector>
 #include "../utils/Vector2D.h"
 #include "NetworkSystem.h"
-//#include "BulletsSystem.h"
+#include "BulletsSystem.h"
 
 class FighterSystem :
     public System
@@ -23,5 +23,5 @@ private:
     float thrust = 0.2;
     float speedLimit = 3;
     int lives = 3;
-    //BulletsSystem* bulletsSystem;
+    BulletsSystem* bulletsSystem;
 };

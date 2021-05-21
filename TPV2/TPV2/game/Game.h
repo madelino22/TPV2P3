@@ -20,6 +20,8 @@ public:
 private:
 	std::unique_ptr<Manager> mngr_;
 	System *fightersSys_;
+	System *fighterGunSys_;
+	System *bulletsSys_;
 	System *collisionSys_;
 	System *gameMngrSys_;
 	System *renderSys_;

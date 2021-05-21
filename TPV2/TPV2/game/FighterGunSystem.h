@@ -1,6 +1,6 @@
 #pragma once
-#include "../ecs_4/ecs/System.h"
-#include "../ecs_4/ecs/Entity.h"
+#include "../ecs/System.h"
+#include "../ecs/Entity.h"
 #include <vector>
 #include "../utils/Vector2D.h"
 #include "../sdlutils/InputHandler.h"

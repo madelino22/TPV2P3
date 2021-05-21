@@ -33,6 +33,7 @@ private:
 
 	Texture* naveIzq;
 	Texture*  naveDr;
+	Texture*  balaTex;
 	SDL_Rect src_;
 
 	Transform* tr_;

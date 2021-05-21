@@ -1,5 +1,5 @@
 #include "BulletsSystem.h"
-#include "../ecs_4/ecs/Manager.h"
+#include "../ecs/Manager.h"
 #include "../game/FighterSystem.h"
 #include "../sdlutils/SDLUtils.h"
 
@@ -11,7 +11,7 @@ void BulletsSystem::onCollisionWithAsteroid(Entity* b, Entity* a)
 	manager_->setActive(b, false);
 }
 
-void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double height)
+void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double height, Transform* tr_)
 {
 	//al disparar se crea una nueva entidad que es la bala
 	Entity* balaTest = manager_->addEntity();
@@ -59,11 +59,10 @@ void BulletsSystem::update()
 void BulletsSystem::init()
 {
 
-	tr_ = manager_->getComponent<Transform>(manager_->getHandler<JET>());
 }
 
 void BulletsSystem::receive(const Message& m)
 {
-	if (m.id_ == ASTEROID_COLLISION_WITH_BULLET)
-		onCollisionWithAsteroid(m.entitiesCol.bullet, m.entitiesCol.asteroid);
+	/*if (m.id_ == ASTEROID_COLLISION_WITH_BULLET)
+		onCollisionWithAsteroid(m.entitiesCol.bullet, m.entitiesCol.asteroid);*/
 }

@@ -1,37 +1,5 @@
-﻿  FighterSystem.cpp
+﻿  FighterGunSystem.cpp
 D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14,15): warning C4099: 'Entity': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
 D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14): message : vea la declaración de 'Entity'
-D:\uni\DSI\TPV2P3\TPV2\TPV2\game\FighterSystem.h(23,18): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\uni\DSI\TPV2P3\TPV2\TPV2\game\FighterSystem.cpp(40,101): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\uni\DSI\TPV2P3\TPV2\TPV2\game\FighterSystem.cpp(40,76): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\uni\DSI\TPV2P3\TPV2\TPV2\game\FighterSystem.cpp(48,104): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\uni\DSI\TPV2P3\TPV2\TPV2\game\FighterSystem.cpp(48,79): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\uni\DSI\TPV2P3\TPV2\TPV2\game\FighterSystem.cpp(75,17): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\uni\DSI\TPV2P3\TPV2\TPV2\game\FighterSystem.cpp(79,16): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Manager.h(38,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
-          with
-          [
-              _Ty=int
-          ]
-D:\uni\DSI\TPV2P3\TPV2\TPV2\game\FighterSystem.cpp(40): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D,Vector2D,int,int,int>(Entity *,Vector2D &&,Vector2D &&,int &&,int &&,int &&)" que se está compilando
-          with
-          [
-              T=Transform
-          ]
-  Game.cpp
-D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14,15): warning C4099: 'Entity': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14): message : vea la declaración de 'Entity'
-D:\uni\DSI\TPV2P3\TPV2\TPV2\game\FighterSystem.h(23,18): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  GameManagerSystem.cpp
-D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14,15): warning C4099: 'Entity': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14): message : vea la declaración de 'Entity'
-  NetworkSystem.cpp
-D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14,15): warning C4099: 'Entity': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14): message : vea la declaración de 'Entity'
-D:\uni\DSI\TPV2P3\TPV2\TPV2\game\FighterSystem.h(23,18): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\uni\DSI\TPV2P3\TPV2\TPV2\game\NetworkSystem.cpp(198,68): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-  RenderSystem.cpp
-D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14,15): warning C4099: 'Entity': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14): message : vea la declaración de 'Entity'
-  Generando código...
+D:\uni\DSI\TPV2P3\TPV2\TPV2\game\FighterGunSystem.cpp(22,61): warning C4018: '>=': no coinciden signed/unsigned
   TPV2.vcxproj -> D:\uni\DSI\TPV2P3\TPV2\bin\TPV2Debug.exe

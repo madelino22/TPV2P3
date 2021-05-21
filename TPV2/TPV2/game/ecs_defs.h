@@ -14,8 +14,8 @@ struct PaddleCtrlKeys;
 	PaddleCtrlKeys
 
 // groups
-struct Paddle;
-#define _GRPS_LIST_ Paddle
+struct Bullets;
+#define _GRPS_LIST_ Bullets
 
 // handlers
 struct LeftFighter;
@@ -26,6 +26,8 @@ struct RightFighter;
 
 // systems
 class FighterSystem;
+class FighterGunSystem;
+class BulletsSystem;
 class RenderSystem;
 class CollisionSystem;
 class GameManagerSystem;
@@ -34,6 +36,8 @@ class NetworkSystem;
 #define _SYS_LIST_ \
 		RenderSystem, \
 		FighterSystem, \
+		FighterGunSystem, \
+		BulletsSystem, \
 		CollisionSystem, \
 		GameManagerSystem,\
 		NetworkSystem

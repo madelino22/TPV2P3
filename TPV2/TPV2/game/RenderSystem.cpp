@@ -15,6 +15,7 @@ RenderSystem::RenderSystem() :
 		rightFighter(nullptr) {
 	naveIzq = &sdlutils().images().at("nave");
 	naveDr = &sdlutils().images().at("nave2");
+	balaTex = &sdlutils().images().at("fire");
 }
 
 RenderSystem::~RenderSystem() {
@@ -26,6 +27,7 @@ void RenderSystem::init() {
 	assert(leftFighter != nullptr);
 	rightFighter = manager_->getComponent<Transform>(manager_->getHandler<RightFighter>());
 	assert(rightFighter != nullptr);
+	
 
 	
 }
@@ -44,11 +46,11 @@ void RenderSystem::update() {
 			src_ = { 0,0, naveDr->width(), naveDr->height() };
 			naveDr->render(src_, dest, tr_->getRot());
 		}
-		/*else if (manager_->hasGroup<Bullets>(e))
+		else if (manager_->hasGroup<Bullets>(e))
 		{
-			src_ = { 0,0, tex_[bala]->width(), tex_[bala]->height() };
-			tex_[bala]->render(src_, dest, tr_->getRot());
-		}*/
+			src_ = { 0,0, balaTex->width(), balaTex->height() };
+			balaTex->render(src_, dest, tr_->getRot());
+		}
 		
 	}
 

@@ -105,6 +105,12 @@
     <ClCompile Include="game\FighterSystem.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
+    <ClCompile Include="game\BulletsSystem.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\FighterGunSystem.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json\JSON.h">
@@ -213,6 +219,12 @@
       <Filter>Header Files\game</Filter>
     </ClInclude>
     <ClInclude Include="game\FighterSystem.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\BulletsSystem.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\FighterGunSystem.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
   </ItemGroup>

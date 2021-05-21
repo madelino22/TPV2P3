@@ -17,6 +17,8 @@
 #include "GameManagerSystem.h"
 #include "NetworkSystem.h"
 #include "RenderSystem.h"
+#include "BulletsSystem.h"
+#include "fighterGunSystem.h"
 
 Game::Game() {
 	mngr_.reset(new Manager());
@@ -41,11 +43,14 @@ void Game::init(const char *host, Uint16 port) {
 
 	networkSys_ = mngr_->addSystem<NetworkSystem>(host, port, playerName);
 	fightersSys_ = mngr_->addSystem<FighterSystem>();
+	bulletsSys_ = mngr_->addSystem<BulletsSystem>();
+	fighterGunSys_ = mngr_->addSystem<FighterGunSystem>();
 	collisionSys_ = mngr_->addSystem<CollisionSystem>();
 	gameMngrSys_ = mngr_->addSystem<GameManagerSystem>();
 	renderSys_ = mngr_->addSystem<RenderSystem>();
 
 	dynamic_cast<RenderSystem*>(renderSys_)->getEntities(&(mngr_->getEnteties()));
+	dynamic_cast<BulletsSystem*>(bulletsSys_)->getEntities(&(mngr_->getEnteties()));
 }
 
 void Game::start() {
@@ -73,6 +78,8 @@ void Game::start() {
 		collisionSys_->update();
 		gameMngrSys_->update();
 		networkSys_->update();
+		fighterGunSys_->update();
+		bulletsSys_->update();
 
 		sdlutils().clearRenderer();
 		renderSys_->update();
