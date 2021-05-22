@@ -1,1 +1,6 @@
-﻿  TPV2.vcxproj -> C:\Users\roy_x\OneDrive\Escritorio\GitHub\TPV2P3\TPV2\bin\TPV2Debug.exe
+﻿  NetworkSystem.cpp
+D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14,15): warning C4099: 'Entity': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+D:\uni\DSI\TPV2P3\TPV2\TPV2\ecs\Entity.h(14): message : vea la declaración de 'Entity'
+D:\uni\DSI\TPV2P3\TPV2\TPV2\game\FighterSystem.h(23,18): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+D:\uni\DSI\TPV2P3\TPV2\TPV2\game\NetworkSystem.cpp(206,69): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  TPV2.vcxproj -> D:\uni\DSI\TPV2P3\TPV2\bin\TPV2Debug.exe

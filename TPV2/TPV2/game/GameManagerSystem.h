@@ -42,6 +42,7 @@ public:
 	void resetGame();
 	void init() override;
 	void update() override;
+	void destruyeBalas();
 	
 private:
 	std::array<Uint8, 2> score_;

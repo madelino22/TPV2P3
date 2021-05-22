@@ -47,11 +47,6 @@ void CollisionSystem::update() {
                         {
                             manager_->getSystem<GameManagerSystem>()->onFighterDeath((*entidades)[i]);
                            
-                            /*Message astBullColl;
-                            astBullColl.id_ = ASTEROID_COLLISION_WITHBULLET;
-                            astBullColl.entitiesCol.asteroid = (entidades)[i];
-                            astBullColl.entitiesCol.bullet = (entidades)[j];
-                            manager->send(astBullColl);*/
 
                         }
                     }

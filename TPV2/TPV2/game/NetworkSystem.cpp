@@ -189,14 +189,24 @@ void NetworkSystem::update() {
 					m->left_score_, m->right_score_);
 			break;
 		}
+		
+		case _FIGHTER_DEATH_: {
+			FighterDeathMsg *m = static_cast<FighterDeathMsg*>(m_);
+			manager_->getSystem<GameManagerSystem>()->onFighterDeath(nullptr);
+			//al meterse en este método siendo el cliente solo reproducirá el sonido
+			break;
+		}
 
 			// change paddle position of other player
 		case _FIGHTER_POS: {
-			FighterTransformMsg *m = static_cast<FighterTransformMsg*>(m_);
-			Vector2D pos(m->x, m->y);
-			
-			manager_->getSystem<FighterSystem>()->setFighterTr(m->id, pos, m->r);
+			if (manager_->getSystem<GameManagerSystem>()->getState() == GameManagerSystem::RUNNING) {
+				FighterTransformMsg* m = static_cast<FighterTransformMsg*>(m_);
+				Vector2D pos(m->x, m->y);
+
+				manager_->getSystem<FighterSystem>()->setFighterTr(m->id, pos, m->r);
 				/*(m->id, pos);*/
+			}
+			
 			break;
 		}
 
@@ -303,6 +313,26 @@ void NetworkSystem::tryShoot()
 
 	// send the message
 	SDLNet_UDP_Send(conn_, -1, p_);
+}
+
+void NetworkSystem::tryDestroy()
+{
+	// if the other player is not connected do nothing
+	if (!isGameReday_)
+		return;
+
+	// we prepare a message that includes all information
+	FighterDeathMsg* m = static_cast<FighterDeathMsg*>(m_);
+	m->_type = _FIGHTER_DEATH_;
+
+	// set the message length and the address of the other player
+	p_->len = sizeof(FighterDeathMsg);
+	p_->address = otherPlayerAddress_;
+
+	// send the message
+	SDLNet_UDP_Send(conn_, -1, p_);
+
+
 }
 
 void NetworkSystem::sendStateChanged(Uint8 state, Uint8 left_score,

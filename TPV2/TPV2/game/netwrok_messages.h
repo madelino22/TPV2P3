@@ -11,6 +11,7 @@ enum MsgType : uint8_nt {
 	_I_WANT_TO_PLAY_, //
 	_WELCOME_, //
 	_FIGHTER_POS, //
+	_FIGHTER_DEATH_, //
 	_START_GAME_REQUEST_,
 	_STATE_CHANGED_, //
 	_SHOT_INFO_, //
@@ -25,6 +26,9 @@ struct NetworkMessage {
 
 struct DissConnectMsg: NetworkMessage {
 	uint8_nt id;
+};
+
+struct FighterDeathMsg: NetworkMessage {
 };
 
 

@@ -51,6 +51,7 @@ void BulletsSystem::update()
 			//si el transform de la entidad muestra que se ha salido de la pantalla, se elimina el objeto
 			if (pos.getX() + w / 2 < 0 || pos.getX() + w / 2 > sdlutils().width() || pos.getY() + h / 2 < 0 || pos.getY() + h / 2 > sdlutils().height()) {
 				manager_->setActive(e,false);
+				std::cout << "se leminia\n";
 			}
 		}
 	}

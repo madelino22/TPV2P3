@@ -33,6 +33,7 @@ public:
 
 	void sendStartGameRequest();
 	void tryShoot();
+	void tryDestroy();
 	void sendStateChanged(Uint8 state, Uint8 left_score, Uint8 right_score);
 
 	auto& getNames() {

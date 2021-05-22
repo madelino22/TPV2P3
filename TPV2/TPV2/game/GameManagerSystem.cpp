@@ -46,23 +46,47 @@ void GameManagerSystem::update() {
 	}
 }
 
+void GameManagerSystem::destruyeBalas()
+{
+	const std::vector<Entity*>& entidades = manager_->getEnteties();
+	for (Entity* e : entidades) {
+		if (manager_->hasGroup<Bullets>(e)) {
+			manager_->setActive(e,false);
+		}
+	}
+}
+
 void GameManagerSystem::onFighterDeath(Entity* fighter)
 {
-	if (manager_->getHandler<LeftFighter>() == fighter)
-	{
-		score_[1]++;
-	}
-	else if (manager_->getHandler<RightFighter>() == fighter)
-	{
-		score_[0]++;
-	}
-	assert(state_ == RUNNING); // this should be called only when game is runnig
+	//al meterse en este método siendo el cliente solo reproducirá el sonido
 
-	if (score_[0] < maxScore_ && score_[1] < maxScore_)
-		changeState(PAUSED, score_[1], score_[0]);
-	else
-		changeState(GAMEOVER, score_[1], score_[0]);
-	manager_->getSystem<NetworkSystem>()->sendStateChanged(state_, score_[0],score_[1]);
+	auto isMaster = manager_->getSystem<NetworkSystem>()->isMaster();
+	if (isMaster) {
+		if (manager_->getHandler<LeftFighter>() == fighter)
+		{
+			score_[1]++;
+		}
+		else if (manager_->getHandler<RightFighter>() == fighter)
+		{
+			score_[0]++;
+		}
+		assert(state_ == RUNNING); // this should be called only when game is runnig
+
+
+
+		if (score_[0] < maxScore_ && score_[1] < maxScore_)
+			changeState(PAUSED, score_[0], score_[1]);
+		else
+			changeState(GAMEOVER, score_[0], score_[1]);
+
+		manager_->getSystem<NetworkSystem>()->tryDestroy();
+		manager_->getSystem<NetworkSystem>()->sendStateChanged(state_, score_[0], score_[1]);
+	}
+
+
+	sdlutils().soundEffects().at("bangSmall").play();
+
+	
 }
 void GameManagerSystem::startGame() {
 	if (state_ == RUNNING)
@@ -74,7 +98,7 @@ void GameManagerSystem::startGame() {
 	auto isMaster = manager_->getSystem<NetworkSystem>()->isMaster();
 
 	if (isMaster) {
-		changeState(RUNNING, score_[1], score_[0]);
+		changeState(RUNNING, score_[0], score_[1]);
 		//manager_->getSystem<BallSystem>()->initBall();
 		manager_->getSystem<NetworkSystem>()->sendStateChanged(state_,
 				score_[0], score_[1]);
@@ -96,6 +120,7 @@ void GameManagerSystem::changeState(Uint8 state, Uint8 left_score,
 	trRight->setVel(Vector2D(0, 0));
 	trLeft->setRot(0);
 	trRight->setRot(0);
+	destruyeBalas();
 }
 
 void GameManagerSystem::resetGame() {
