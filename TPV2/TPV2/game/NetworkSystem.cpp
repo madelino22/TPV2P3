@@ -200,11 +200,20 @@ void NetworkSystem::update() {
 			break;
 		}
 
-		case _BALL_INFO_: {
-			BallInfoMsg *m = static_cast<BallInfoMsg*>(m_);
-		/*	Vector2D pos(m->pos_x, m->pos_y);
+		case _SHOT_INFO_: {
+			ShootMessage *m = static_cast<ShootMessage*>(m_);
+			Vector2D pos(m->pos_x, m->pos_y);
 			Vector2D vel(m->vel_x, m->vel_y);
-			manager_->getSystem<BallSystem>()->setBallInfo(pos, vel);*/
+			//si la id = 0 este es el de la izquierda, asique quieres el trransform del de la derecha
+			Transform* tr;
+			if (id_ == 0) {
+				tr = manager_->getComponent<Transform>(manager_->getHandler<RightFighter>());
+			}
+			else {
+				tr = manager_->getComponent<Transform>(manager_->getHandler<LeftFighter>());
+
+			}
+			manager_->getSystem<BulletsSystem>()->shoot(pos, vel, 50, 50, tr);
 
 			break;
 		}
@@ -267,6 +276,35 @@ void NetworkSystem::sendStartGameRequest() {
 	SDLNet_UDP_Send(conn_, -1, p_);
 }
 
+void NetworkSystem::tryShoot()
+{
+	
+	if (!isGameReday_)
+		return;
+
+	// we prepare a message that includes all information
+	ShootMessage* m = static_cast<ShootMessage*>(m_);
+	m->_type = _SHOT_INFO_;
+	if (id_ == 0) {
+		Vector2D pos = manager_->getComponent<Transform>(manager_->getHandler<LeftFighter>())->getPos();
+		m->pos_x = pos.getX();
+		m->pos_y = pos.getY();
+	}
+	else {
+		Vector2D pos = manager_->getComponent<Transform>(manager_->getHandler<RightFighter>())->getPos();
+		m->pos_x = pos.getX();
+		m->pos_y = pos.getY();
+	}
+	
+
+	// set the message length and the address of the other player
+	p_->len = sizeof(ShootMessage);
+	p_->address = otherPlayerAddress_;
+
+	// send the message
+	SDLNet_UDP_Send(conn_, -1, p_);
+}
+
 void NetworkSystem::sendStateChanged(Uint8 state, Uint8 left_score,
 		Uint8 right_score) {
 	// if the other player is not connected do nothing
@@ -289,23 +327,4 @@ void NetworkSystem::sendStateChanged(Uint8 state, Uint8 left_score,
 
 }
 
-void NetworkSystem::sendBallInfo(Vector2D pos, Vector2D vel) {
-	// if the other player is not connected do nothing
-	if (!isGameReday_)
-		return;
 
-	// we prepare a message that includes all information
-	BallInfoMsg *m = static_cast<BallInfoMsg*>(m_);
-	m->_type = _BALL_INFO_;
-	m->pos_x = pos.getX();
-	m->pos_y = pos.getY();
-	m->vel_x = vel.getX();
-	m->vel_y = vel.getY();
-
-	// set the message length and the address of the other player
-	p_->len = sizeof(BallInfoMsg);
-	p_->address = otherPlayerAddress_;
-
-	// send the message
-	SDLNet_UDP_Send(conn_, -1, p_);
-}

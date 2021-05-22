@@ -37,7 +37,7 @@ void FighterSystem::init()
 {
 	//esto iría en el fighterSystem
 	Entity* fighterIzq = manager_->addEntity();
-	manager_->addComponent<Transform>(fighterIzq, Vector2D(sdlutils().width() / 4, sdlutils().height() / 2), Vector2D(0, 0), 20, 20, 0);
+	manager_->addComponent<Transform>(fighterIzq, Vector2D(sdlutils().width() / 4, sdlutils().height()  / 2), Vector2D(0, 0), 40, 40, 0);
 	manager_->setHandler<LeftFighter>(fighterIzq);
 	//manager_->setGroup<RightFighter>(fighter,true);*/
 	trIzq = manager_->getComponent<Transform>(fighterIzq);
@@ -45,7 +45,7 @@ void FighterSystem::init()
 
 
 	Entity* fighterDr = manager_->addEntity();
-	manager_->addComponent<Transform>(fighterDr, Vector2D(sdlutils().width() * 3 / 4, sdlutils().height() / 2), Vector2D(0, 0), 20, 20, 0);
+	manager_->addComponent<Transform>(fighterDr, Vector2D(sdlutils().width() * 3 / 4, sdlutils().height() / 2), Vector2D(0, 0), 40, 40, 0);
 	manager_->setHandler<RightFighter>(fighterDr);
 	//manager_->setGroup<JET>(fighter,true);*/
 	trDr = manager_->getComponent<Transform>(fighterDr);

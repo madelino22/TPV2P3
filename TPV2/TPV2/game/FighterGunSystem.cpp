@@ -32,6 +32,7 @@ void FighterGunSystem::update()
 
 					timer = sdlutils().currRealTime();
 					bulletsSystem->shoot(pos, vel, 50, 50, tr);
+					manager_->getSystem<NetworkSystem>()->tryShoot();
 				}
 			}
 		}

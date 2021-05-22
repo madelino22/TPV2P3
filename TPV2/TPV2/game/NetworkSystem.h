@@ -30,9 +30,10 @@ public:
 	}
 
 	void sendFighterPos(Vector2D pos, float r);
+
 	void sendStartGameRequest();
+	void tryShoot();
 	void sendStateChanged(Uint8 state, Uint8 left_score, Uint8 right_score);
-	void sendBallInfo(Vector2D pos, Vector2D vel);
 
 	auto& getNames() {
 		return names_;

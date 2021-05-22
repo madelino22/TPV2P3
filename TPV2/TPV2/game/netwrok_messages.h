@@ -13,9 +13,10 @@ enum MsgType : uint8_nt {
 	_FIGHTER_POS, //
 	_START_GAME_REQUEST_,
 	_STATE_CHANGED_, //
-	_BALL_INFO_, //
+	_SHOT_INFO_, //
 	_DISCONNECTED_, //
 	_ACTIVE_
+	
 };
 
 struct NetworkMessage {
@@ -43,12 +44,15 @@ struct FighterTransformMsg: NetworkMessage {
 	float32_nt r;
 };
 
-struct BallInfoMsg: NetworkMessage {
+
+struct ShootMessage: NetworkMessage {
 	float32_nt pos_x;
 	float32_nt pos_y;
 	float32_nt vel_x;
 	float32_nt vel_y;
 };
+
+
 
 struct StateChangedMessage: NetworkMessage {
 	uint8_nt state_;
