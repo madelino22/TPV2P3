@@ -5,9 +5,10 @@
 #include <array>
 
 #include "../ecs/System.h"
+//#include "../ecs/Entity.h"
 
 struct Transform;
-
+class Entity;
 class GameManagerSystem: public System {
 public:
 
@@ -35,13 +36,13 @@ public:
 		return score_;
 	}
 
-	void onBallExit(Side side);
+	void onFighterDeath(Entity* fighter);
 	void startGame();
 	void changeState(Uint8 state, Uint8 left_score, Uint8 right_score);
 	void resetGame();
 	void init() override;
 	void update() override;
-
+	
 private:
 	std::array<Uint8, 2> score_;
 	Uint8 state_;

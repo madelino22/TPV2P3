@@ -2,7 +2,8 @@
 
 #pragma once
 #include "../ecs/System.h"
-
+#include "../ecs/Entity.h"
+#include <vector>
 struct Transform;
 class SoundEffect;
 
@@ -12,10 +13,8 @@ public:
 	virtual ~CollisionSystem();
 	void init() override;
 	void update() override;
+	void getEntities(const std::vector<Entity*>* ent) { entidades = ent; };
 private:
-	Transform *ballTr_;
-	Transform *leftPaddelTr_;
-	Transform *rightPaddelTr_;
-	SoundEffect *paddleHit_;
+	const std::vector<Entity*>* entidades;
 };
 

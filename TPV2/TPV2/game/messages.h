@@ -22,17 +22,3 @@ struct Message {
 	}
 };
 
-struct BallExitMsg: Message {
-	BallExitMsg(GameManagerSystem::Side side) :
-			Message(_BALL_EXIT), side_(side) {
-	}
-
-	GameManagerSystem::Side side_;
-
-	virtual ~BallExitMsg() {
-	}
-	virtual BallExitMsg* clone() const {
-		return new BallExitMsg(*this);
-	}
-
-};

@@ -5,7 +5,9 @@
 #include "../components/Transform.h"
 #include "../ecs/Manager.h"
 #include "../sdlutils/InputHandler.h"
+#include "../sdlutils/SDLUtils.h"
 #include "NetworkSystem.h"
+
 
 GameManagerSystem::GameManagerSystem() :
 		score_(), //
@@ -17,26 +19,6 @@ GameManagerSystem::~GameManagerSystem() {
 }
 
 void GameManagerSystem::init() {
-}
-
-void GameManagerSystem::onBallExit(Side side) {
-
-	assert(state_ == RUNNING); // this should be called only when game is runnig
-
-	if (side == LEFT) {
-		score_[1]++;
-	} else {
-		score_[0]++;
-	}
-
-	if (score_[0] < maxScore_ && score_[1] < maxScore_)
-		state_ = PAUSED;
-	else
-		state_ = GAMEOVER;
-
-	manager_->getSystem<NetworkSystem>()->sendStateChanged(state_, score_[0],
-			score_[1]);
-
 }
 
 void GameManagerSystem::update() {
@@ -64,6 +46,24 @@ void GameManagerSystem::update() {
 	}
 }
 
+void GameManagerSystem::onFighterDeath(Entity* fighter)
+{
+	if (manager_->getHandler<LeftFighter>() == fighter)
+	{
+		score_[1]++;
+	}
+	else if (manager_->getHandler<RightFighter>() == fighter)
+	{
+		score_[0]++;
+	}
+	assert(state_ == RUNNING); // this should be called only when game is runnig
+
+	if (score_[0] < maxScore_ && score_[1] < maxScore_)
+		changeState(PAUSED, score_[1], score_[0]);
+	else
+		changeState(GAMEOVER, score_[1], score_[0]);
+	manager_->getSystem<NetworkSystem>()->sendStateChanged(state_, score_[0],score_[1]);
+}
 void GameManagerSystem::startGame() {
 	if (state_ == RUNNING)
 		return;
@@ -74,7 +74,7 @@ void GameManagerSystem::startGame() {
 	auto isMaster = manager_->getSystem<NetworkSystem>()->isMaster();
 
 	if (isMaster) {
-		state_ = RUNNING;
+		changeState(RUNNING, score_[1], score_[0]);
 		//manager_->getSystem<BallSystem>()->initBall();
 		manager_->getSystem<NetworkSystem>()->sendStateChanged(state_,
 				score_[0], score_[1]);
@@ -88,6 +88,14 @@ void GameManagerSystem::changeState(Uint8 state, Uint8 left_score,
 	state_ = state;
 	score_[0] = left_score;
 	score_[1] = right_score;
+	Transform* trLeft = manager_->getComponent<Transform>(manager_->getHandler<LeftFighter>());
+	Transform* trRight = manager_->getComponent<Transform>(manager_->getHandler<RightFighter>());
+	trLeft->setPos(Vector2D(sdlutils().width() / 4, sdlutils().height() / 2));
+	trRight->setPos(Vector2D(sdlutils().width() * 3 / 4, sdlutils().height() / 2));
+	trLeft->setVel(Vector2D(0, 0));
+	trRight->setVel(Vector2D(0, 0));
+	trLeft->setRot(0);
+	trRight->setRot(0);
 }
 
 void GameManagerSystem::resetGame() {

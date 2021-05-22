@@ -10,63 +10,52 @@
 #include "GameManagerSystem.h"
 #include "NetworkSystem.h"
 
-CollisionSystem::CollisionSystem() :
-		ballTr_(nullptr), //
-		leftPaddelTr_(nullptr), //
-		rightPaddelTr_(nullptr), //
-		paddleHit_(nullptr) {
+CollisionSystem::CollisionSystem() 
+{
 
 }
+
 
 CollisionSystem::~CollisionSystem() {
 }
 
 void CollisionSystem::init() {
-	///*paddleHit_ = &sdlutils().soundEffects().at("paddle_hit");
-	//ballTr_ = manager_->getComponent<Transform>(manager_->getHandler<Ball>());*/
-	//assert(ballTr_ != nullptr);
-	//leftPaddelTr_ = manager_->getComponent<Transform>(
-	//		manager_->getHandler<LeftFighter>());
-	//assert(leftPaddelTr_ != nullptr);
-	//rightPaddelTr_ = manager_->getComponent<Transform>(
-	//		manager_->getHandler<RightFighter>());
-	//assert(rightPaddelTr_ != nullptr);
+	
 }
-
 void CollisionSystem::update() {
 
-	//if (!manager_->getSystem<NetworkSystem>()->isMaster())
-	//	return;
+	if (!manager_->getSystem<NetworkSystem>()->isMaster())
+		return;
 
-	//if (manager_->getSystem<GameManagerSystem>()->getState()
-	//		!= GameManagerSystem::RUNNING)
-	//	return;
+	if (manager_->getSystem<GameManagerSystem>()->getState() != GameManagerSystem::RUNNING)
+		return;
+        int n = (*entidades).size();
+        //Se recorre la lista de entidades
+        for (int i = 0; i < n; ++i)
+            //para cada entidad del grupoi asteroides
+            if (manager_->getHandler<LeftFighter>() == (*entidades)[i] || manager_->getHandler<RightFighter>() == (*entidades)[i])
+            {
+                auto aTR = manager_->getComponent<Transform>((*entidades)[i]); // Transform del caza
+                for (int j = 0; j < n; ++j)
+                    //se recorre otra vez la lista preguntando a las entidades del grupo balas o a la nave
+                    if (manager_->hasGroup<Bullets>((*entidades)[j])) // Choque con las balas
+                    {
+                        auto bTR = manager_->getComponent<Transform>((*entidades)[j]); // Transform de la bala
+                        //si han chocado
+                        if (Collisions::collidesWithRotation(aTR->getPos(), aTR->getW(), aTR->getH(), aTR->getRot(),
+                            bTR->getPos(), bTR->getW(), bTR->getH(), bTR->getRot()))
+                        {
+                            manager_->getSystem<GameManagerSystem>()->onFighterDeath((*entidades)[i]);
+                           
+                            /*Message astBullColl;
+                            astBullColl.id_ = ASTEROID_COLLISION_WITHBULLET;
+                            astBullColl.entitiesCol.asteroid = (entidades)[i];
+                            astBullColl.entitiesCol.bullet = (entidades)[j];
+                            manager->send(astBullColl);*/
 
-	//// check if ball hits paddles
-	//if (Collisions::collides(leftPaddelTr_->pos_, leftPaddelTr_->width_,
-	//		leftPaddelTr_->height_, ballTr_->pos_, ballTr_->width_,
-	//		ballTr_->height_)
-	//		|| Collisions::collides(rightPaddelTr_->pos_,
-	//				rightPaddelTr_->width_, rightPaddelTr_->height_,
-	//				ballTr_->pos_, ballTr_->width_, ballTr_->height_)) {
-
-	//	// change the direction of the ball, and increment the speed
-	//	ballTr_->vel_.setX(-ballTr_->vel_.getX());
-	//	ballTr_->vel_ = ballTr_->vel_ * 1.2f;
-	//	manager_->getSystem<NetworkSystem>()->sendBallInfo(ballTr_->pos_,
-	//			ballTr_->vel_);
-
-	//	// play some sound
-	//	paddleHit_->play();
-
-	//} else if (ballTr_->pos_.getX() < 0) {
-	//	manager_->getSystem<GameManagerSystem>()->onBallExit(
-	//			GameManagerSystem::LEFT);
-	//	//manager_->getSystem<BallSystem>()->resetBall();
-	//} else if (ballTr_->pos_.getX() + ballTr_->width_ > sdlutils().width()) {
-	//	manager_->getSystem<GameManagerSystem>()->onBallExit(
-	//			GameManagerSystem::RIGHT);
-	//	//manager_->getSystem<BallSystem>()->resetBall();
-	//}
-
+                        }
+                    }
+            }           
 }
+
+
