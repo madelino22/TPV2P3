@@ -1,8 +1,1 @@
-﻿  GameManagerSystem.cpp
-C:\Users\roy_x\OneDrive\Escritorio\GitHub\TPV2P3\TPV2\TPV2\ecs\Entity.h(14,15): warning C4099: 'Entity': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-C:\Users\roy_x\OneDrive\Escritorio\GitHub\TPV2P3\TPV2\TPV2\ecs\Entity.h(14): message : vea la declaración de 'Entity'
-C:\Users\roy_x\OneDrive\Escritorio\GitHub\TPV2P3\TPV2\TPV2\game\GameManagerSystem.cpp(93,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\roy_x\OneDrive\Escritorio\GitHub\TPV2P3\TPV2\TPV2\game\GameManagerSystem.cpp(93,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\roy_x\OneDrive\Escritorio\GitHub\TPV2P3\TPV2\TPV2\game\GameManagerSystem.cpp(94,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\roy_x\OneDrive\Escritorio\GitHub\TPV2P3\TPV2\TPV2\game\GameManagerSystem.cpp(94,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  TPV2.vcxproj -> C:\Users\roy_x\OneDrive\Escritorio\GitHub\TPV2P3\TPV2\bin\TPV2Debug.exe
+﻿  TPV2.vcxproj -> C:\Users\roy_x\OneDrive\Escritorio\GitHub\TPV2P3\TPV2\bin\TPV2Debug.exe

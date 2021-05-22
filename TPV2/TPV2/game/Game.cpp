@@ -51,6 +51,7 @@ void Game::init(const char *host, Uint16 port) {
 
 	dynamic_cast<RenderSystem*>(renderSys_)->getEntities(&(mngr_->getEnteties()));
 	dynamic_cast<BulletsSystem*>(bulletsSys_)->getEntities(&(mngr_->getEnteties()));
+	dynamic_cast<CollisionSystem*>(collisionSys_)->getEntities(&(mngr_->getEnteties()));
 }
 
 void Game::start() {
