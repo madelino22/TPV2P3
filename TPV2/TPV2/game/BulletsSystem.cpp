@@ -5,11 +5,6 @@
 
 
 
-void BulletsSystem::onCollisionWithAsteroid(Entity* b, Entity* a)
-{
-	//lo único que hace es destruir la bala
-	manager_->setActive(b, false);
-}
 
 void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double height, Transform* tr_)
 {
@@ -51,19 +46,10 @@ void BulletsSystem::update()
 			//si el transform de la entidad muestra que se ha salido de la pantalla, se elimina el objeto
 			if (pos.getX() + w / 2 < 0 || pos.getX() + w / 2 > sdlutils().width() || pos.getY() + h / 2 < 0 || pos.getY() + h / 2 > sdlutils().height()) {
 				manager_->setActive(e,false);
-				std::cout << "se leminia\n";
 			}
 		}
 	}
 }
 
-void BulletsSystem::init()
-{
 
-}
 
-void BulletsSystem::receive(const Message& m)
-{
-	/*if (m.id_ == ASTEROID_COLLISION_WITH_BULLET)
-		onCollisionWithAsteroid(m.entitiesCol.bullet, m.entitiesCol.asteroid);*/
-}

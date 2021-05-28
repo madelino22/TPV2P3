@@ -28,6 +28,8 @@ struct DissConnectMsg: NetworkMessage {
 	uint8_nt id;
 };
 
+
+//es un mensaje vacío, la única infomación que queremos es saber cuando se ha destuido el caza, que se obtiene al recibir el mensaje
 struct FighterDeathMsg: NetworkMessage {
 };
 

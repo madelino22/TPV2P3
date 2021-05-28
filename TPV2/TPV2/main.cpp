@@ -23,9 +23,9 @@ void start(int argc, char **argv) {
 		host = argv[1];
 		port = static_cast<Uint16>(atoi(argv[2]));
 	} else {
-		/*throw "Unknown mode";*/
-		g.init(host, 2000);
-		g.start();
+		throw "Unknown mode";
+		/*g.init(host, port);
+		g.start();*/
 	}
 
 	g.init(host, port);

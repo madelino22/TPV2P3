@@ -10,18 +10,7 @@
 #include "GameManagerSystem.h"
 #include "NetworkSystem.h"
 
-CollisionSystem::CollisionSystem() 
-{
 
-}
-
-
-CollisionSystem::~CollisionSystem() {
-}
-
-void CollisionSystem::init() {
-	
-}
 void CollisionSystem::update() {
 
 	if (!manager_->getSystem<NetworkSystem>()->isMaster())
@@ -32,12 +21,12 @@ void CollisionSystem::update() {
         int n = (*entidades).size();
         //Se recorre la lista de entidades
         for (int i = 0; i < n; ++i)
-            //para cada entidad del grupoi asteroides
+            //para cada caza
             if (manager_->getHandler<LeftFighter>() == (*entidades)[i] || manager_->getHandler<RightFighter>() == (*entidades)[i])
             {
                 auto aTR = manager_->getComponent<Transform>((*entidades)[i]); // Transform del caza
                 for (int j = 0; j < n; ++j)
-                    //se recorre otra vez la lista preguntando a las entidades del grupo balas o a la nave
+                    //se recorre otra vez la lista preguntando a las entidades del grupo balas
                     if (manager_->hasGroup<Bullets>((*entidades)[j])) // Choque con las balas
                     {
                         auto bTR = manager_->getComponent<Transform>((*entidades)[j]); // Transform de la bala

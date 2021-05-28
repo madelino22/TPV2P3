@@ -9,9 +9,7 @@ class SoundEffect;
 
 class CollisionSystem: public System {
 public:
-	CollisionSystem();
-	virtual ~CollisionSystem();
-	void init() override;
+	
 	void update() override;
 	void getEntities(const std::vector<Entity*>* ent) { entidades = ent; };
 private:

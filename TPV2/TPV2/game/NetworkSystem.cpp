@@ -31,7 +31,7 @@ NetworkSystem::NetworkSystem(const char *host, Uint16 port,
 
 NetworkSystem::~NetworkSystem() {
 
-	//
+	
 	if (conn_) {
 		DissConnectMsg *m = static_cast<DissConnectMsg*>(m_);
 		m->_type = _DISCONNECTED_;
@@ -82,7 +82,7 @@ void NetworkSystem::init() {
 		// we use id 1, and open a socket to send/receive messages
 		isMaster_ = false;
 
-//		id_ = 1;
+//		id_ = 1; la id se asigna al cliente al recibir el mensaje de vuelta de i want to play
 		conn_ = SDLNet_UDP_Open(0);
 		if (!conn_)
 			throw SDLNet_GetError();
@@ -95,7 +95,7 @@ void NetworkSystem::init() {
 			throw SDLNet_GetError();
 		}
 
-		// send a message asking to play
+		// enviar un mensaje diciendo que quiere jugar
 		PlayRequestMsg *m = static_cast<PlayRequestMsg*>(m_);
 		m->_type = _I_WANT_TO_PLAY_;
 		memset(m->name, 0, 10);
@@ -115,10 +115,12 @@ void NetworkSystem::init() {
 			if (SDLNet_SocketReady(conn_)) {
 				if (SDLNet_UDP_Recv(conn_, p_) > 0) {
 					if (m_->_type == _WELCOME_) {
+						//si se ha el master recibió el mensaje _I_WANT_TO_PLAY_ envía uno de vuelta del tipo welcome
 						isGameReday_ = true;
 						WelcomeMsg *m = static_cast<WelcomeMsg*>(m_);
 						remotePlayerName_ = std::string(
 								reinterpret_cast<char*>(m->name));
+						//el mensaje trae de vuelta la id de este jugador (cliente)
 						id_ = m->id;
 						names_[id_] = localPlayerName_;
 						names_[1 - id_] = remotePlayerName_;
@@ -167,6 +169,7 @@ void NetworkSystem::update() {
 						localPlayerName_.size() > 9 ?
 								9 : localPlayerName_.size();
 				memcpy(mr->name, localPlayerName_.c_str(), size);
+				//Se envía de vuelta la id del cliente (desde el master)
 				mr->id = 1 - id_;
 				p_->len = sizeof(WelcomeMsg);
 				SDLNet_UDP_Send(conn_, -1, p_);
@@ -197,14 +200,14 @@ void NetworkSystem::update() {
 			break;
 		}
 
-			// change paddle position of other player
+			//cambiar la posición del caza, se hace todo el rato
 		case _FIGHTER_POS: {
 			if (manager_->getSystem<GameManagerSystem>()->getState() == GameManagerSystem::RUNNING) {
 				FighterTransformMsg* m = static_cast<FighterTransformMsg*>(m_);
 				Vector2D pos(m->x, m->y);
 
 				manager_->getSystem<FighterSystem>()->setFighterTr(m->id, pos, m->r);
-				/*(m->id, pos);*/
+			
 			}
 			
 			break;
@@ -254,6 +257,7 @@ void NetworkSystem::update() {
 
 	}
 
+
 }
 
 void NetworkSystem::sendFighterPos(Vector2D pos, float r) {
@@ -280,6 +284,8 @@ void NetworkSystem::sendFighterPos(Vector2D pos, float r) {
 }
 
 void NetworkSystem::sendStartGameRequest() {
+	//
+	
 	m_->_type = _START_GAME_REQUEST_;
 	p_->len = sizeof(NetworkMessage);
 	p_->address = otherPlayerAddress_;
@@ -306,6 +312,7 @@ void NetworkSystem::tryShoot()
 		m->pos_y = pos.getY();
 	}
 	
+	//Se le pasa al otro jugador la posición y velocidad de la bala que se acaba de disparar
 
 	// set the message length and the address of the other player
 	p_->len = sizeof(ShootMessage);
@@ -321,11 +328,9 @@ void NetworkSystem::tryDestroy()
 	if (!isGameReday_)
 		return;
 
-	// we prepare a message that includes all information
 	FighterDeathMsg* m = static_cast<FighterDeathMsg*>(m_);
 	m->_type = _FIGHTER_DEATH_;
 
-	// set the message length and the address of the other player
 	p_->len = sizeof(FighterDeathMsg);
 	p_->address = otherPlayerAddress_;
 
